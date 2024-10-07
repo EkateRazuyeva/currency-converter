@@ -4,4 +4,200 @@ body {
   padding: 0;
   background-color: #1e192d;
   font-family: Inter, Roboto, sans-serif;
+}
+
+input,
+button {
+  background: none;
+  outline: none;
+  border: none;
+  font-family: Inter, Roboto, sans-serif;
+  font-size: 16px;
+  counter-reset: #fff;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 1024px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  row-gap: 28px;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  color: #fff;
+  margin: 0;
+  line-height: 27px;
+  font-weight: 700;
+}
+
+.main {
+  width: 100%;
+  position: relative;
+}
+.main:after, .main:before {
+  position: absolute;
+  content: "";
+  display: block;
+}
+.main:before {
+  width: 220px;
+  height: 220px;
+  bottom: 0;
+  left: -180px;
+  background: url(../images/bitcoin.png) no-repeat center/contain;
+  z-index: -1;
+}
+.main:after {
+  width: 144px;
+  height: 144px;
+  bottom: 0;
+  left: -72px;
+  background: url(../images/ethereum.png) no-repeat center/contain;
+  z-index: -1;
+}
+
+.wrapper {
+  background: linear-gradient(180deg, #271d35 0%, rgba(39, 29, 53, 0.2) 100%);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-radius: 12px;
+  padding: 9px 45px 37px 45px;
+  width: 100%;
+  min-height: 314px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.tabs:before {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  width: 70%;
+  height: 2px;
+  min-width: 660px;
+  background: linear-gradient(90deg, rgba(217, 217, 217, 0) 12.5%, #ffffff 51.57%, rgba(255, 255, 255, 0) 86.98%);
+  opacity: 0.2;
+  content: "";
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  padding: 15px 10px;
+  opacity: 0.5;
+  transition: opacity 0.25s ease;
+  position: relative;
+}
+.tab:after {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  width: 0;
+  height: 2px;
+  content: "";
+  transition: width 0.25s ease;
+  background: linear-gradient(90deg, rgba(255, 88, 95, 0) 0%, #fa5897 51.57%, rgba(255, 88, 95, 0) 100%);
+}
+.tab-icon {
+  width: 18px;
+  height: 18px;
+}
+.tab:hover {
+  opacity: 0.8;
+}
+.tab:active {
+  opacity: 1;
+}
+.tab:active::after {
+  width: 100%;
+}
+
+.form {
+  margin-top: 40px;
+}
+.form label {
+  display: block;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #b7b7b7;
+  margin-bottom: 10px;
+  padding-left: 16px;
+}
+.form-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.form-group {
+  width: 320px;
+}
+.form-group input {
+  width: 100%;
+  background: #2b2440;
+  border-radius: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #f5f5f5;
+  border: 2px solid rgba(255, 88, 95, 0.35);
+  padding: 14px;
+}
+.form-selects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 25px;
+       column-gap: 25px;
+  align-items: flex-end;
+}
+.form-select {
+  flex-grow: 1;
+}
+.form-select_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2b2440;
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: opacity 0.25s ease;
+}
+.form-select_icon:hover {
+  opacity: 1;
 }/*# sourceMappingURL=styles.css.map */
