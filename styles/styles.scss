@@ -46,6 +46,20 @@ input[type="number"] {
   padding: 14px;
 }
 
+@mixin button {
+  background: linear-gradient(97.46deg, #ff585f 3.28%, #fa5897 95.35%);
+  border-radius: 12px;
+  font-size: 17px;
+  line-height: 21px;
+  color: #ffffff;
+  padding: 12px 30px;
+  cursor: pointer;
+  margin-left: auto;
+  &:hover {
+    background: linear-gradient(97.46deg, #ff585f 3.28%, #fa5897 95.35%);
+  }
+}
+
 .container {
   width: 1024px;
   margin: 0 auto;
@@ -208,6 +222,253 @@ h1 {
 
       &:hover {
         opacity: 1;
+      }
+    }
+  }
+
+  &-info {
+    @include flex(space-between);
+    margin-top: 25px;
+  }
+
+  &-submit {
+    @include button;
+  }
+
+  &-results {
+    @include flex;
+    column-gap: 15px;
+    opacity: 0;
+    &.show {
+      opacity: 1;
+    }
+  }
+  &-result {
+    &_equals {
+      background: #2b2440;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      @include flex;
+    }
+    &_item {
+      background: #1e192d;
+      border-radius: 12px;
+      padding: 12px;
+      align-items: center;
+      display: grid;
+      column-gap: 8px;
+      width: max-content;
+      grid-template-columns: 32px 1fr;
+      grid-template-areas:
+        "icon titles"
+        "icon amount";
+
+      &.from {
+        .icon {
+          background: #fc5782;
+          box-shadow: 0px 0px 0px 2px #fc578240;
+        }
+      }
+      &.to {
+        .icon {
+          background: #1fc4af;
+          box-shadow: 0px 0px 0px 2px #1fc4af40;
+        }
+      }
+
+      .icon {
+        @include flex;
+        grid-area: icon;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+      }
+
+      &-titles {
+        grid-area: titles;
+        @include flex(start);
+        column-gap: 10px;
+      }
+
+      &_title {
+        font-weight: 500;
+        font-size: 14px;
+        color: #fff;
+        line-height: 17px;
+      }
+
+      &-full {
+        font-weight: 400;
+        font-size: 12px;
+        color: rgba(245, 245, 245, 0.5);
+        line-height: 15px;
+      }
+
+      &-value {
+        grid-area: amount;
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 23px;
+        margin-top: 6px;
+      }
+    }
+  }
+}
+
+.rate {
+  &-information {
+    @include flex(space-between);
+    margin-top: 16px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(245, 245, 245, 0.5);
+  }
+
+  &-conversion {
+    color: #fff;
+  }
+}
+
+.select {
+  cursor: pointer;
+  min-width: 240px;
+  @include input;
+}
+
+.currency {
+  &-wrapepr {
+    margin-top: 40px;
+  }
+
+  &-item {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    border-radius: 12px;
+    padding: 14px 20px;
+    border: 2px solid #fa5897;
+    background: none;
+  }
+
+  &-titles {
+    @include flex(start);
+    column-gap: 19px;
+  }
+
+  &-title {
+    font-weight: 600;
+    line-height: 19px;
+    color: #f5f5f5;
+    min-width: 40px;
+  }
+
+  &-full {
+    font-weight: 400;
+    font-size: 12px;
+    color: rgba(245, 245, 245, 0.5);
+    line-height: 15px;
+  }
+
+  &-amount {
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  &-single {
+    position: relative;
+
+    .current-item {
+      height: 69px;
+    }
+
+    .select {
+      display: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      right: 10px;
+      width: calc(100% - 20px);
+      max-width: 290px;
+    }
+
+    &.active {
+      .current-button {
+        display: none;
+      }
+
+      .select {
+        display: block;
+      }
+    }
+  }
+
+  &-action {
+    text-align: right;
+  }
+
+  &-current {
+    border: none;
+    background: #879fff;
+
+    .currency {
+      &-full {
+        color: #2b2440;
+      }
+    }
+  }
+
+  &-list {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+  }
+
+  &-button {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(255, 255, 255, 0.5);
+    width: max-content;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: border 0.25s, color 0.25s;
+    text-transform: capitalize;
+
+    &-hover {
+      border: 1px solid rgba(255, 255, 255, 1);
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+
+  &-add {
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+
+    &_button {
+      @include button;
+    }
+
+    .select {
+      display: none;
+      padding: 11px 14px;
+    }
+
+    &.active {
+      .select {
+        display: block;
+      }
+
+      .currency-add_button {
+        display: none;
       }
     }
   }
