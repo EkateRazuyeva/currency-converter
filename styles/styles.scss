@@ -138,6 +138,7 @@ h1 {
 }
 
 .tabs {
+  margin-bottom: 40px;
   @include flex;
   position: relative;
 
@@ -584,5 +585,13 @@ h1 {
         display: none;
       }
     }
+  }
+}
+
+.content {
+  display: none;
+
+  &.show {
+    display: block;
   }
 }

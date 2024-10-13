@@ -115,6 +115,7 @@ h1 {
 }
 
 .tabs {
+  margin-bottom: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -580,4 +581,11 @@ h1 {
 }
 .currency-add.active .currency-add_button {
   display: none;
+}
+
+.content {
+  display: none;
+}
+.content.show {
+  display: block;
 }/*# sourceMappingURL=styles.css.map */

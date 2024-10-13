@@ -1,7 +1,18 @@
+import { renderResult } from "./markups.js";
 import state from "./state.js";
+import { getFullTitle, formatToCurrency, convertTime } from "./utils.js";
 import variables from "./variables.js";
 
-const { success } = variables;
+const {
+  success,
+  resultFrom,
+  resultTo,
+  formResults,
+  rateConversion,
+  rateLast,
+  toSelect,
+  fromSelect,
+} = variables;
 
 export const handleChange = ({ target: { value, name } }) => {
   state.pair = {
@@ -17,10 +28,34 @@ export const handleInput = ({ target: { value, name } }) => {
 const insertResults = ({
   base_code: baseCode,
   target_code: targetCode,
-  convertion_rate: rate,
-  convertion_result: result,
+  conversion_rate: rate,
+  conversion_result: result,
   time_last_update_utc: time,
-}) => {};
+}) => {
+  const from = {
+    code: baseCode,
+    amount: state.amount,
+    full: getFullTitle(state.codes, baseCode),
+  };
+
+  const to = {
+    code: targetCode,
+    amount: result,
+    full: getFullTitle(state.codes, targetCode),
+  };
+
+  resultFrom.innerHTML = renderResult(from);
+
+  resultTo.innerHTML = renderResult(to);
+
+  const baseValue = formatToCurrency(baseCode, 1);
+  const targetValue = formatToCurrency(targetCode, rate);
+
+  rateConversion.innerText = `${baseValue} = ${targetValue}`;
+  rateLast.innerText = `Last updated ${convertTime(time)}`;
+
+  formResults.classList.add("show");
+};
 
 export const handleSubmit = async (e) => {
   e?.preventDefault();
@@ -45,4 +80,20 @@ export const handleSubmit = async (e) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const switchCurrencies = () => {
+  const {
+    pair: { to, from },
+  } = state;
+
+  if (!to || !from) return;
+
+  state.pair = {
+    to: from,
+    from: to,
+  };
+
+  toSelect.value = from;
+  fromSelect.value = to;
 };
