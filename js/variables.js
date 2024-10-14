@@ -12,4 +12,9 @@ export default {
   toSelect: document.getElementById("to"),
   fromSelect: document.getElementById("from"),
   tabs: document.querySelectorAll(".tab"),
+  currentCurrency: document.querySelector(".currency-single-item"),
+  currentCurrencyList: document.querySelector(".currency-list"),
+  singleSelect: document.getElementById("singleSelect"),
+  addButton: document.querySelector(".currency-add_button"),
+  addCurrencySelect: document.getElementById("addCurrencySelect"),
 };

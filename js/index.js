@@ -1,6 +1,7 @@
 import variables from "./variables.js";
 import state from "./state.js";
 import { handleChange } from "./convert.js";
+import { fetchLatest } from "./single.js";
 
 const { selects, success, tabs } = variables;
 
@@ -13,7 +14,8 @@ const renderCodeList = () => {
       select.insertAdjacentElement("beforeend", element);
     });
 
-    select.addEventListener("change", handleChange);
+    const name = select.getAttribute("name");
+    name && select.addEventListener("change", handleChange);
   });
 };
 
@@ -25,6 +27,7 @@ export const fetchCodes = async () => {
     if (data.result === success) {
       state.codes = data.supported_codes;
       renderCodeList();
+      fetchLatest();
     }
   } catch (error) {
     console.log(error);

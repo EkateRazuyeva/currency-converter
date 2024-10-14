@@ -56,7 +56,7 @@ input[type="number"] {
   cursor: pointer;
   margin-left: auto;
   &:hover {
-    background: linear-gradient(97.46deg, #ff585f 3.28%, #fa5897 95.35%);
+    background: linear-gradient(97.46deg, #c03940 3.28%, #b33263 95.35%);
   }
 }
 
@@ -503,8 +503,8 @@ h1 {
     .select {
       display: none;
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      top: 50%;
+      transform: translateY(-50%);
       right: 10px;
       width: calc(100% - 20px);
       max-width: 290px;
@@ -547,7 +547,7 @@ h1 {
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 15px;
     color: rgba(255, 255, 255, 0.5);
     width: max-content;
@@ -556,7 +556,7 @@ h1 {
     transition: border 0.25s, color 0.25s;
     text-transform: capitalize;
 
-    &-hover {
+    &:hover {
       border: 1px solid rgba(255, 255, 255, 1);
       color: rgba(255, 255, 255, 1);
     }
