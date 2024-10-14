@@ -89,10 +89,10 @@ h1 {
 .main:after {
   width: 144px;
   height: 144px;
-  bottom: 0;
-  left: -72px;
+  top: -72px;
+  right: 0;
   background: url(../images/ethereum.png) no-repeat center/contain;
-  z-index: -1;
+  z-index: 1;
 }
 
 .wrapper {
